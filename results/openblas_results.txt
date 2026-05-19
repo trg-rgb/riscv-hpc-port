@@ -1,0 +1,24 @@
+OpenBLAS 0.3.33 RISC-V Cross-Compilation Results
+=================================================
+Date: May 19, 2026
+Toolchain: riscv64-linux-gnu-gcc 15.2.0
+Fortran: riscv64-linux-gnu-gfortran 15.2.0
+Target architecture: RV64GC (riscv64)
+Library: libopenblas_riscv64_genericp-r0.3.33.dev.a
+Threading: Multi-threaded (max 12 threads)
+Emulator: qemu-riscv64
+
+Build command:
+make CC=riscv64-linux-gnu-gcc FC=riscv64-linux-gnu-gfortran \
+     CROSS_SUFFIX=riscv64-linux-gnu- TARGET=RISCV64_GENERIC HOSTCC=gcc -j4
+
+Test: DGEMM (Double-precision General Matrix Multiply)
+C = A x B where A,B are 2x2 matrices
+
+Results:
+C[0][0] = 19.0 (expected 19.0) PASS
+C[0][1] = 22.0 (expected 22.0) PASS
+C[1][0] = 43.0 (expected 43.0) PASS
+C[1][1] = 50.0 (expected 50.0) PASS
+
+OpenBLAS DGEMM verified correct on RISC-V.
