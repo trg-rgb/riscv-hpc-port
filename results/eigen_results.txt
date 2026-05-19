@@ -1,0 +1,20 @@
+Eigen 5.0.1 RISC-V Cross-Compilation Results
+=============================================
+Date: May 19, 2026
+Toolchain: riscv64-linux-gnu-g++ 15.2.0
+Target architecture: RV64GC
+Emulator: qemu-riscv64 -L /usr/riscv64-linux-gnu
+Host: Ubuntu WSL2 on x86_64
+
+Build command:
+cmake .. -DCMAKE_SYSTEM_NAME=Linux -DCMAKE_SYSTEM_PROCESSOR=riscv64 \
+  -DCMAKE_C_COMPILER=riscv64-linux-gnu-gcc \
+  -DCMAKE_CXX_COMPILER=riscv64-linux-gnu-g++ \
+  -DEIGEN_TEST_NOQT=ON
+
+Tests run and results:
+clz_3       | Initializing random number generator | 10 repetitions | PASS
+basicstuff_1| Initializing random number generator | 10 repetitions | PASS
+basicstuff_2| Initializing random number generator | 10 repetitions | PASS
+
+All tests passed. Eigen matrix operations verified correct on RISC-V.
