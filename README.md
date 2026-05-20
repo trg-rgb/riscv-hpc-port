@@ -10,7 +10,7 @@
 ![bisection](https://img.shields.io/badge/bisection-PASS_1.40e--10-brightgreen)
 ![rk4](https://img.shields.io/badge/RK4-PASS_4.90e--10-brightgreen)
 ![lu](https://img.shields.io/badge/LU_residual-PASS_0.00e%2B00-brightgreen)
-![eigen](https://img.shields.io/badge/Eigen_5.0.1-3%2F3_tests_PASS-brightgreen)
+![eigen](https://img.shields.io/badge/Eigen_5.0.1-42%2F42_PASS-brightgreen)
 ![openblas](https://img.shields.io/badge/OpenBLAS_0.3.33-DGEMM_exact-brightgreen)
  
 ---
@@ -22,7 +22,7 @@ Cross-compilation and QEMU validation of HPC and numerical libraries for RISC-V,
 | Library | Version | Status | Evidence |
 |---|---|---|---|
 | Numerical methods (Bisection, RK4, LU) | — | ✅ PASS | `numerical/results/` |
-| Eigen | 5.0.1 | ✅ 3/3 tests PASS | `eigen/results/` |
+| Eigen | 5.0.1 | ✅ 42/42 tests PASS | `eigen/results/` |
 | OpenBLAS | 0.3.33 | ✅ DGEMM exact | `openblas/results/` |
  
 ---
@@ -33,9 +33,11 @@ Cross-compilation and QEMU validation of HPC and numerical libraries for RISC-V,
 |---|---|
 | C/C++ cross-compiler | `riscv64-linux-gnu-gcc 15.2.0` |
 | Fortran cross-compiler | `riscv64-linux-gnu-gfortran 15.2.0` |
-| Target architecture | `RV64GC` |
+| Target architecture | `RV64GC` (double-float ABI) |
 | Emulator | `qemu-riscv64` |
 | Host | Ubuntu WSL2 on x86_64 |
+ 
+Reproduce the full toolchain setup: [`setup_toolchain.sh`](setup_toolchain.sh)
  
 ---
  
@@ -57,7 +59,7 @@ Full output: [`numerical/results/numerical_demo_output.txt`](numerical/results/n
  
 ### Eigen 5.0.1
  
-CMake cross-compiled using a RISC-V toolchain file. Three tests run under `qemu-riscv64`, 10 repetitions each.
+CMake cross-compiled using a RISC-V toolchain file. 42 tests run under `qemu-riscv64`, zero failures.
  
 ```
 cmake .. -DCMAKE_SYSTEM_NAME=Linux \
@@ -65,14 +67,24 @@ cmake .. -DCMAKE_SYSTEM_NAME=Linux \
          -DCMAKE_C_COMPILER=riscv64-linux-gnu-gcc \
          -DCMAKE_CXX_COMPILER=riscv64-linux-gnu-g++ \
          -DEIGEN_TEST_NOQT=ON
+ 
+QEMU_LD_PREFIX=/usr/riscv64-linux-gnu ctest
 ```
  
-| Test | Repetitions | Result |
-|---|---|---|
-| `clz_3` | 10 | ✅ PASS |
-| `basicstuff_1` | 10 | ✅ PASS |
-| `basicstuff_2` | 10 | ✅ PASS |
+| Test group | Count | What it covers | Result |
+|---|---|---|---|
+| `clz_1–4` | 4 | Count leading zeros, bit manipulation | ✅ PASS |
+| `rand_1–15` | 15 | Random number generation and distribution | ✅ PASS |
+| `realview_1–12` | 12 | Real-valued matrix views and operations | ✅ PASS |
+| `basicstuff_1–2` | 2 | Core matrix arithmetic and assignment | ✅ PASS |
+| `meta` | 1 | Template metaprogramming correctness | ✅ PASS |
+| `numext` | 1 | Numerical extensions and special functions | ✅ PASS |
+| `dynalloc` | 1 | Dynamic memory allocation | ✅ PASS |
+| `nomalloc_1–3` | 3 | Zero-allocation matrix operations | ✅ PASS |
+| `lru_cache`, `maxsizevector`, `sizeof` | 3 | Utility and memory layout | ✅ PASS |
+| **Total** | **42** | | **42/42 PASS** |
  
+Compiled riscv64 ELF binaries: [`eigen/bin/`](eigen/bin/)  
 Full output: [`eigen/results/eigen_results.txt`](eigen/results/eigen_results.txt)  
 Source: [`eigen/src/eigen_validate.cpp`](eigen/src/eigen_validate.cpp)  
 Build scripts: [`eigen/toolchain/`](eigen/toolchain/)
@@ -110,22 +122,22 @@ Full output: [`openblas/results/openblas_results.txt`](openblas/results/openblas
  
 ```
 riscv-hpc-port/
+├── setup_toolchain.sh              # Reproduces full cross-compilation environment
 ├── numerical/
 │   ├── src/numerical_demo.c        # Bisection, RK4, LU — portable C, zero deps
 │   └── results/numerical_demo_output.txt
 ├── eigen/
 │   ├── src/eigen_validate.cpp      # Eigen test harness
+│   ├── bin/                        # Compiled riscv64 ELF test binaries
 │   ├── toolchain/
-│   │   ├── riscv64-toolchain.cmake # CMake cross-compile toolchain file
-│   │   ├── build_eigen.sh          # Full build script
-│   │   └── run_validation.sh       # Run tests under qemu-riscv64
+│   │   ├── riscv64-toolchain.cmake
+│   │   ├── build_eigen.sh
+│   │   └── run_validation.sh
 │   └── results/eigen_results.txt
 ├── openblas/
 │   └── results/openblas_results.txt
-├── coding-challenge/
-│   └── tower_of_hanoi.py           # LFX coding challenge submission
-└── toolchain/
-    └── setup.sh                    # Toolchain installation script
+└── coding-challenge/
+    └── tower_of_hanoi.py
 ```
  
 ---
@@ -136,3 +148,4 @@ riscv-hpc-port/
 - [LFX application issue #14](https://github.com/clusterchallenge/Hardware-Abstraction-Layer-Transitional-Libraries/issues/14) — ML/AI porting subdirectory RFC
 - [Groundnut leaf disease CNN](https://github.com/trg-rgb/Pretrained-CNN-with-6-class-image-classification) — Gold Medal, Sci Quest 2025
 - [Deployed Hugging Face app](https://huggingface.co/spaces/tanmaytrg/Pretrained_CNN_6_class_image_classification)
+
