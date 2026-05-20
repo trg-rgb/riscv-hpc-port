@@ -1,9 +1,9 @@
 Eigen 5.0.1 RISC-V Cross-Compilation Results
 =============================================
-Date: May 19, 2026
+Date: May 20, 2026
 Toolchain: riscv64-linux-gnu-g++ 15.2.0
-Target architecture: RV64GC
-Emulator: qemu-riscv64 -L /usr/riscv64-linux-gnu
+Target architecture: RV64GC (dynamically linked, double-float ABI)
+Emulator: qemu-riscv64 with QEMU_LD_PREFIX=/usr/riscv64-linux-gnu
 Host: Ubuntu WSL2 on x86_64
 
 Build command:
@@ -12,9 +12,16 @@ cmake .. -DCMAKE_SYSTEM_NAME=Linux -DCMAKE_SYSTEM_PROCESSOR=riscv64 \
   -DCMAKE_CXX_COMPILER=riscv64-linux-gnu-g++ \
   -DEIGEN_TEST_NOQT=ON
 
-Tests run and results:
-clz_3       | Initializing random number generator | 10 repetitions | PASS
-basicstuff_1| Initializing random number generator | 10 repetitions | PASS
-basicstuff_2| Initializing random number generator | 10 repetitions | PASS
+Tests passed (42/42 built binaries):
+clz_1, clz_2, clz_3, clz_4
+rand_1 through rand_15 (15 tests)
+realview_1 through realview_12 (12 tests)
+meta, lru_cache, maxsizevector, numext, sizeof
+dynalloc, nomalloc_1, nomalloc_2, nomalloc_3
+basicstuff_1, basicstuff_2
 
-All tests passed. Eigen matrix operations verified correct on RISC-V.
+Not Run (37): binaries not built in partial build — not failures
+Zero test failures. All built binaries pass on RISC-V.
+
+Binary format (verified):
+ELF 64-bit LSB pie executable, UCB RISC-V, RVC, double-float ABI
