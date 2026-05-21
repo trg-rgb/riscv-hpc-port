@@ -1,0 +1,18 @@
+INFO: STARTING!
+INFO: Log parameter values verbosely: [0]
+INFO: Min num runs: [1]
+INFO: Min warmup runs: [1]
+INFO: Graph: [/mnt/c/Users/tanma_8x/lfx-riscv/tflite/groundnut_cnn.tflite]
+INFO: Signature to run: []
+INFO: Loaded model /mnt/c/Users/tanma_8x/lfx-riscv/tflite/groundnut_cnn.tflite
+INFO: The input model file size (MB): 59.9175
+INFO: Initialized session in 227.587ms.
+INFO: Running benchmark for at least 1 iterations and at least 0.5 seconds but terminate if exceeding 150 seconds.
+INFO: count=1 curr=797720987
+
+INFO: Running benchmark for at least 1 iterations and at least 1 seconds but terminate if exceeding 150 seconds.
+INFO: count=1 curr=781353268
+
+INFO: Inference timings in us: Init: 227587, First inference: 797720987, Warmup (avg): 7.97721e+08, Inference (avg): 7.81353e+08
+INFO: Note: as the benchmark tool itself affects memory footprint, the following is only APPROXIMATE to the actual memory footprint of the model at runtime. Take the information at your discretion.
+INFO: Memory footprint delta from the start of the tool (MB): init=16.8281 overall=100.719
