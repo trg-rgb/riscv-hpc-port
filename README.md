@@ -12,7 +12,7 @@
 ![lu](https://img.shields.io/badge/LU_residual-PASS_0.00e%2B00-brightgreen)
 ![eigen](https://img.shields.io/badge/Eigen_5.0.1-42%2F42_PASS-brightgreen)
 ![openblas](https://img.shields.io/badge/OpenBLAS_0.3.33-DGEMM_exact-brightgreen)
- 
+![tflite](https://img.shields.io/badge/TF_Lite_v2.17.0-libtensorflow--lite.a_built-brightgreen)
 ---
  
 ## What This Repo Contains
@@ -24,7 +24,8 @@ Cross-compilation and QEMU validation of HPC and numerical libraries for RISC-V,
 | Numerical methods (Bisection, RK4, LU) | — | ✅ PASS | `numerical/results/` |
 | Eigen | 5.0.1 | ✅ 42/42 tests PASS | `eigen/results/` |
 | OpenBLAS | 0.3.33 | ✅ DGEMM exact | `openblas/results/` |
- 
+| TensorFlow Lite | v2.17.0 | ✅ libtensorflow-lite.a built (21MB, 243 objects) | `tflite/results/` |
+
 ---
  
 ## Toolchain
@@ -118,9 +119,50 @@ Full output: [`openblas/results/openblas_results.txt`](openblas/results/openblas
  
 ---
  
-## Repository Structure
+### TensorFlow Lite v2.17.0
+ 
+Cross-compiled `libtensorflow-lite.a` for riscv64 — the first ML inference runtime port
+attempted in this applicant pool, and the direct prerequisite for running `.tflite` model
+inference on RISC-V.
  
 ```
+cmake ~/tensorflow-v2.17.0/tensorflow/lite \
+  -DCMAKE_TOOLCHAIN_FILE=riscv64-toolchain.cmake \
+  -DCMAKE_BUILD_TYPE=Release \
+  -DTFLITE_ENABLE_XNNPACK=OFF \
+  -DTFLITE_ENABLE_RUY=OFF \
+  -DBUILD_SHARED_LIBS=OFF
+```
+ 
+| Flag | Reason |
+|---|---|
+| `-DTFLITE_ENABLE_XNNPACK=OFF` | XNNPACK uses NEON/SSE2 intrinsics — not present on base RV64GC without the V extension |
+| `-DTFLITE_ENABLE_RUY=OFF` | Ruy has no riscv64 fast path; same rationale |
+| `-DBUILD_SHARED_LIBS=OFF` | Static library is self-contained — no dynamic linker path issues under QEMU |
+ 
+**Result:**
+ 
+| Metric | Value |
+|---|---|
+| Output | `libtensorflow-lite.a` |
+| Size | 21 MB |
+| Object files in archive | 243 |
+| Binary format | `elf64-littleriscv` |
+| Architecture | `riscv:rv64` |
+ 
+Verified with `riscv64-linux-gnu-objdump` and `riscv64-linux-gnu-nm` — real inference
+engine symbols compiled for riscv64, not stubs.
+ 
+Full build log: [`tflite/results/tflite_build_results.txt`](tflite/results/tflite_build_results.txt)  
+Library: [`tflite/results/libtensorflow-lite.a`](tflite/results/libtensorflow-lite.a)  
+Toolchain file: [`tflite/toolchain/riscv64-toolchain.cmake`](tflite/toolchain/riscv64-toolchain.cmake)
+ 
+**Next:** link `benchmark_model` against this library → run groundnut CNN inference under
+`qemu-riscv64` → verify outputs match x86 reference.
+ 
+---
+## Repository Structure
+``` 
 riscv-hpc-port/
 ├── setup_toolchain.sh              # Reproduces full cross-compilation environment
 ├── numerical/
@@ -136,10 +178,15 @@ riscv-hpc-port/
 │   └── results/eigen_results.txt
 ├── openblas/
 │   └── results/openblas_results.txt
+├── tflite/
+│   ├── toolchain/
+│   │   └── riscv64-toolchain.cmake
+│   └── results/
+│       ├── libtensorflow-lite.a    # 21MB elf64-littleriscv static library
+│       └── tflite_build_results.txt
 └── coding-challenge/
     └── tower_of_hanoi.py
 ```
- 
 ---
  
 ## Related
@@ -148,4 +195,4 @@ riscv-hpc-port/
 - [LFX application issue #14](https://github.com/clusterchallenge/Hardware-Abstraction-Layer-Transitional-Libraries/issues/14) — ML/AI porting subdirectory RFC
 - [Groundnut leaf disease CNN](https://github.com/trg-rgb/Pretrained-CNN-with-6-class-image-classification) — Gold Medal, Sci Quest 2025
 - [Deployed Hugging Face app](https://huggingface.co/spaces/tanmaytrg/Pretrained_CNN_6_class_image_classification)
-
+- [LFX results issue #17](https://github.com/clusterchallenge/Hardware-Abstraction-Layer-Transitional-Libraries/issues/17) — TF Lite v2.17.0 cross-compilation result
