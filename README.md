@@ -24,8 +24,6 @@ Cross-compilation and QEMU validation of HPC and numerical libraries for RISC-V,
 | Numerical methods (Bisection, RK4, LU) | — | ✅ PASS | `numerical/results/` |
 | Eigen | 5.0.1 | ✅ 42/42 tests PASS | `eigen/results/` |
 | OpenBLAS | 0.3.33 | ✅ DGEMM exact | `openblas/results/` |
-| Library | Version | Status | Evidence |
-|---|---|---|---|
 | TensorFlow Lite | v2.17.0 | ✅ libtensorflow-lite.a built (21MB, 243 objects) | `tflite/results/` |
 
 ---
@@ -163,6 +161,7 @@ Toolchain file: [`tflite/toolchain/riscv64-toolchain.cmake`](tflite/toolchain/ri
 `qemu-riscv64` → verify outputs match x86 reference.
  
 ---
+## Repository Structure
 ``` 
 riscv-hpc-port/
 ├── setup_toolchain.sh              # Reproduces full cross-compilation environment
