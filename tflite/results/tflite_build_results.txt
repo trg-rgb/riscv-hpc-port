@@ -1,0 +1,24 @@
+TensorFlow Lite v2.17.0 RISC-V Cross-Compilation Results
+=========================================================
+Date: May 21, 2026
+Toolchain: riscv64-linux-gnu-gcc 15.2.0
+Target architecture: RV64GC (elf64-littleriscv)
+Host: Ubuntu WSL2 on x86_64
+
+Build flags:
+-DTFLITE_ENABLE_XNNPACK=OFF  (XNNPACK uses NEON/SSE2 intrinsics, unavailable on base RV64GC)
+-DTFLITE_ENABLE_RUY=OFF      (Ruy has architecture-specific fast paths)
+-DBUILD_SHARED_LIBS=OFF      (static binary for QEMU portability)
+
+Result:
+[100%] Linking CXX static library libtensorflow-lite.a
+[100%] Built target tensorflow-lite
+
+Output: libtensorflow-lite.a (21MB)
+Format: ELF64-littleriscv, architecture riscv:rv64
+Verified with: riscv64-linux-gnu-objdump
+
+Blocker encountered and resolved:
+protoc (protobuf compiler) was being cross-compiled for riscv64 instead of
+built natively for the host x86. Fixed by installing native protobuf-compiler
+and clearing the CMake cache.
