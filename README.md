@@ -28,6 +28,7 @@ Cross-compilation and QEMU validation of HPC and numerical libraries for RISC-V,
 | OpenBLAS | 0.3.33 | ✅ DGEMM exact | `openblas/results/` |
 | TensorFlow Lite | v2.17.0 | ✅ libtensorflow-lite.a built (21MB, 243 objects) | `tflite/results/` |
 | HAL SIMD Shim | — | ✅ 20/20 PASS on riscv64 (scalar/SSE2/AVX2/RVV) | `hal/` |
+
 ---
  
 ## Toolchain
@@ -190,7 +191,7 @@ Test harness: [`hal/test_hal.c`](hal/test_hal.c)
 ---
 ## Repository Structure
 
-``` 
+```
 riscv-hpc-port/
 ├── setup_toolchain.sh              # Reproduces full cross-compilation environment
 ├── numerical/
