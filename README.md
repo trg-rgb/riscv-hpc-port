@@ -13,6 +13,8 @@
 ![eigen](https://img.shields.io/badge/Eigen_5.0.1-42%2F42_PASS-brightgreen)
 ![openblas](https://img.shields.io/badge/OpenBLAS_0.3.33-DGEMM_exact-brightgreen)
 ![tflite](https://img.shields.io/badge/TF_Lite_v2.17.0-libtensorflow--lite.a_built-brightgreen)
+![hal](https://img.shields.io/badge/HAL_SIMD-20%2F20_PASS_riscv64-brightgreen)
+
 ---
  
 ## What This Repo Contains
@@ -25,7 +27,7 @@ Cross-compilation and QEMU validation of HPC and numerical libraries for RISC-V,
 | Eigen | 5.0.1 | ✅ 42/42 tests PASS | `eigen/results/` |
 | OpenBLAS | 0.3.33 | ✅ DGEMM exact | `openblas/results/` |
 | TensorFlow Lite | v2.17.0 | ✅ libtensorflow-lite.a built (21MB, 243 objects) | `tflite/results/` |
-
+| HAL SIMD Shim | — | ✅ 20/20 PASS on riscv64 (scalar/SSE2/AVX2/RVV) | `hal/` |
 ---
  
 ## Toolchain
@@ -120,11 +122,11 @@ Full output: [`openblas/results/openblas_results.txt`](openblas/results/openblas
 ---
  
 ### TensorFlow Lite v2.17.0
- 
+
 Cross-compiled `libtensorflow-lite.a` for riscv64 — the first ML inference runtime port
 attempted in this applicant pool, and the direct prerequisite for running `.tflite` model
 inference on RISC-V.
- 
+
 ```
 cmake ~/tensorflow-v2.17.0/tensorflow/lite \
   -DCMAKE_TOOLCHAIN_FILE=riscv64-toolchain.cmake \
@@ -133,15 +135,15 @@ cmake ~/tensorflow-v2.17.0/tensorflow/lite \
   -DTFLITE_ENABLE_RUY=OFF \
   -DBUILD_SHARED_LIBS=OFF
 ```
- 
+
 | Flag | Reason |
 |---|---|
 | `-DTFLITE_ENABLE_XNNPACK=OFF` | XNNPACK uses NEON/SSE2 intrinsics — not present on base RV64GC without the V extension |
 | `-DTFLITE_ENABLE_RUY=OFF` | Ruy has no riscv64 fast path; same rationale |
 | `-DBUILD_SHARED_LIBS=OFF` | Static library is self-contained — no dynamic linker path issues under QEMU |
- 
+
 **Result:**
- 
+
 | Metric | Value |
 |---|---|
 | Output | `libtensorflow-lite.a` |
@@ -149,19 +151,45 @@ cmake ~/tensorflow-v2.17.0/tensorflow/lite \
 | Object files in archive | 243 |
 | Binary format | `elf64-littleriscv` |
 | Architecture | `riscv:rv64` |
- 
+
 Verified with `riscv64-linux-gnu-objdump` and `riscv64-linux-gnu-nm` — real inference
 engine symbols compiled for riscv64, not stubs.
- 
+
 Full build log: [`tflite/results/tflite_build_results.txt`](tflite/results/tflite_build_results.txt)  
 Library: [`tflite/results/libtensorflow-lite.a`](tflite/results/libtensorflow-lite.a)  
-Toolchain file: [`tflite/toolchain/riscv64-toolchain.cmake`](tflite/toolchain/riscv64-toolchain.cmake)
- 
-**Next:** link `benchmark_model` against this library → run groundnut CNN inference under
-`qemu-riscv64` → verify outputs match x86 reference.
- 
+Toolchain file: [`tflite/toolchain/riscv64-toolchain.cmake`](tflite/toolchain/riscv64-toolchain.cmake)  
+Benchmark tool: [`tflite/bin/benchmark_model`](tflite/bin/benchmark_model) — statically linked riscv64 ELF, runs under `qemu-riscv64` without sysroot dependency
+
+**Next:** export groundnut CNN to `.tflite` → run inference under `qemu-riscv64` → verify outputs match x86 reference.
+
+---
+
+### HAL SIMD Shim
+
+Portable SIMD abstraction layer that eliminates `#ifdef` chains at call sites — the core mechanism for porting x86 intrinsic-heavy HPC codes to RISC-V.
+
+| Backend | Condition | Key ops |
+|---|---|---|
+| RISC-V RVV 1.0 | `__riscv && __riscv_v` | `vfmacc_vv_f64m4`, `vle64_v_f64m4` |
+| x86 AVX2 + FMA | `__AVX2__ && __FMA__` | `_mm256_fmadd_pd`, `_mm256_loadu_pd` |
+| x86 SSE2 | `__SSE2__` | `_mm_mul_pd`, `_mm_add_pd` (4-wide via 2×`__m128d`) |
+| Scalar | any ISA | Plain C loops — bit-identical output |
+
+**Higher-level ops** built on the primitives — directly useful for TF Lite dense layer inference:
+- `hal_dot4` — 4-element dot product
+- `hal_matvec_row` — matrix row × vector (arbitrary length, SIMD + scalar tail)
+- `hal_axpy4` — BLAS-1 AXPY: `y = alpha*x + y`
+
+**Validated on riscv64:** 20/20 tests PASS under `qemu-riscv64` (scalar backend, base RV64GC). RVV path compiles with `-march=rv64gcv`.
+
+Full results: [`hal/test_hal_results.txt`](hal/test_hal_results.txt)  
+Header: [`hal/simd.h`](hal/simd.h)  
+Test harness: [`hal/test_hal.c`](hal/test_hal.c)
+
+
 ---
 ## Repository Structure
+
 ``` 
 riscv-hpc-port/
 ├── setup_toolchain.sh              # Reproduces full cross-compilation environment
@@ -184,6 +212,11 @@ riscv-hpc-port/
 │   └── results/
 │       ├── libtensorflow-lite.a    # 21MB elf64-littleriscv static library
 │       └── tflite_build_results.txt
+├── hal/
+│   ├── simd.h                  # Portable SIMD abstraction (scalar/SSE2/AVX2/RVV)
+│   ├── test_hal.c              # Validation harness — 20 test cases
+│   ├── test_hal_riscv64        # Compiled riscv64 ELF (statically linked)
+│   └── test_hal_results.txt    # QEMU output — 20/20 PASS
 └── coding-challenge/
     └── tower_of_hanoi.py
 ```
