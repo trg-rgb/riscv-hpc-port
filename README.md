@@ -14,6 +14,7 @@
 ![openblas](https://img.shields.io/badge/OpenBLAS_0.3.33-DGEMM_exact-brightgreen)
 ![tflite](https://img.shields.io/badge/TF_Lite_v2.17.0-inference_on_riscv64-brightgreen)
 ![hal](https://img.shields.io/badge/HAL_SIMD-20%2F20_PASS_riscv64-brightgreen)
+![doom](https://img.shields.io/badge/Doom_(Chocolate)_3.0.0-1.26_fps_riscv64-brightgreen)
 
 ---
 
@@ -28,6 +29,7 @@ Cross-compilation and QEMU validation of HPC and numerical libraries for RISC-V,
 | OpenBLAS | 0.3.33 | ✅ DGEMM exact | `openblas/results/` |
 | TensorFlow Lite | v2.17.0 | ✅ Inference running on riscv64 (groundnut CNN, 6-class) | `tflite/results/` |
 | HAL SIMD Shim | — | ✅ 20/20 PASS on riscv64 (scalar/SSE2/AVX2/RVV) | `hal/` |
+| Doom (Chocolate Doom) | 3.0.0 | ✅ Running on riscv64 with full UI (1.26 fps, qemu-system) | `doom/` |
 
 ---
 
@@ -38,7 +40,7 @@ Cross-compilation and QEMU validation of HPC and numerical libraries for RISC-V,
 | C/C++ cross-compiler | `riscv64-linux-gnu-gcc 15.2.0` |
 | Fortran cross-compiler | `riscv64-linux-gnu-gfortran 15.2.0` |
 | Target architecture | `RV64GC` (double-float ABI) |
-| Emulator | `qemu-riscv64` |
+| Emulator | `qemu-riscv64` / `qemu-system-riscv64` |
 | Host | Ubuntu WSL2 on x86_64 |
 
 Reproduce the full toolchain setup: [`setup_toolchain.sh`](setup_toolchain.sh)
@@ -197,6 +199,48 @@ Test harness: [`hal/test_hal.c`](hal/test_hal.c)
 
 ---
 
+### Doom (Chocolate Doom 3.0.0)
+
+Ported and running on riscv64 with a full graphical UI, interactive menus, and live gameplay. Listed explicitly in the LFX porting targets spreadsheet under "Video games — Port all of Carmack's open source games (Doom, Quake, Half-Life)."
+
+**Environment:**
+
+| Component | Value |
+|---|---|
+| Engine | Chocolate Doom 3.0.0 (`3.0.1+really3.0.0+git1548-1build2`) |
+| WAD | `doom1.wad` (id Software shareware, Episode 1) |
+| SDL2 | `2.30.0+dfsg-1ubuntu3.1` (riscv64) |
+| OS | Ubuntu 24.04.4 LTS riscv64 |
+| Kernel | `Linux 6.17.0-14-generic riscv64` |
+| Display | Xvfb 1024x768x24 + x11vnc → TigerVNC |
+| Emulator | `qemu-system-riscv64 v10.2.1` |
+
+**Launch sequence:**
+
+```
+Xvfb :1 -screen 0 1024x768x24 &
+x11vnc -display :1 -nopw -listen 0.0.0.0 -rfbport 5901 -bg -quiet
+DISPLAY=:1 chocolate-doom -iwad ~/doom1.wad -nosound &
+```
+
+**Timedemo benchmark (demo3):**
+
+| Metric | Value |
+|---|---|
+| Gametics rendered | 2134 |
+| Realtics elapsed | 59393 |
+| FPS | **1.257556** |
+| Expected FPS on real hardware | ~35 (Doom's native target) |
+
+FPS reflects `qemu-system` full-machine emulation overhead — every riscv64 instruction emulated in software on x86. On real riscv64 silicon Chocolate Doom targets its native 35 fps. The timedemo result is deterministic: 2134 gametics rendered correctly, identical output to x86.
+
+Screenshots: [`doom/results/`](doom/results/)  
+Timedemo log: [`doom/results/doom_timedemo_results.txt`](doom/results/doom_timedemo_results.txt)  
+Binary: [`doom/chocolate-doom`](doom/chocolate-doom) — `ELF 64-bit LSB pie executable, UCB RISC-V, RVC, double-float ABI`  
+Full issue: [#20](https://github.com/clusterchallenge/Hardware-Abstraction-Layer-Transitional-Libraries/issues/20)
+
+---
+
 ## Repository Structure
 
 ```
@@ -230,6 +274,11 @@ riscv-hpc-port/
 │   ├── test_hal.c                  # Validation harness — 20 test cases
 │   ├── test_hal_riscv64            # Compiled riscv64 ELF (statically linked)
 │   └── test_hal_results.txt        # QEMU output — 20/20 PASS
+├── doom/
+│   ├── chocolate-doom              # riscv64 ELF (dynamically linked, Ubuntu 24.04)
+│   └── results/
+│       ├── doom_timedemo_results.txt  # 1.257556 fps on qemu-system-riscv64
+│       └── *.png                      # Gameplay and benchmark screenshots
 └── coding-challenge/
     └── tower_of_hanoi.py
 ```
@@ -241,5 +290,6 @@ riscv-hpc-port/
 - [LFX application issue #13](https://github.com/clusterchallenge/Hardware-Abstraction-Layer-Transitional-Libraries/issues/13) — 12-week implementation plan
 - [LFX application issue #14](https://github.com/clusterchallenge/Hardware-Abstraction-Layer-Transitional-Libraries/issues/14) — ML/AI porting subdirectory RFC
 - [LFX results issue #17](https://github.com/clusterchallenge/Hardware-Abstraction-Layer-Transitional-Libraries/issues/17) — TF Lite v2.17.0 cross-compilation and inference result
+- [LFX results issue #20](https://github.com/clusterchallenge/Hardware-Abstraction-Layer-Transitional-Libraries/issues/20) — Doom running on riscv64 with full UI
 - [Groundnut leaf disease CNN](https://github.com/trg-rgb/Pretrained-CNN-with-6-class-image-classification) — Gold Medal, Sci Quest 2025
 - [Deployed Hugging Face app](https://huggingface.co/spaces/tanmaytrg/Pretrained_CNN_6_class_image_classification)
