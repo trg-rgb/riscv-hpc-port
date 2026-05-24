@@ -1,0 +1,23 @@
+OpenBLAS 0.3.33 RVV Investigation — Verified Findings
+======================================================
+Date: 2026-05-24
+Author: trg-rgb (Tanmay Gulhane)
+Toolchain: riscv64-linux-gnu-gcc 15.2.0
+QEMU: qemu-riscv64 (user-mode)
+OpenBLAS version: 0.3.33
+
+YOUR BUILD: TARGET=RISCV64_ZVL128B, 0 source patches
+- Total RVV opcodes: 14355
+- Opcode hash: 668957ddfd01156d3dd749ff63aa2246
+- 10/10 identical across reproductions
+- dgemm_kernel size: 2126 bytes (0x84e)
+- dgemm_kernel RVV opcodes: 75
+- DGEMM correctness: 11/12 PASS with Higham 2002 error bounds
+- DGEMM result hash: d97adabf3af9a32152a64fe2a210d1fa
+- 10/10 identical across QEMU runs
+
+VAIBHAV'S BUILD (rebuilt from his patch): TARGET=RISCV64_GENERIC + 120-line patch
+- Total RVV opcodes: 1843
+- dgemm_kernel size: similar
+- dgemm_kernel RVV opcodes: 0
+- L1 and L2 BLAS only, no L3 vectorization

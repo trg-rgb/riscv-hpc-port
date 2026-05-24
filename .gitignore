@@ -1,1 +1,7 @@
 numerical_demo
+
+# Build artifacts (too large for git)
+*.a
+*.o
+*.so
+libopenblas_*
