@@ -1,3 +1,11 @@
+=== HAL SIMD Shim — Dual-Backend Validation on riscv64 ===
+
+Toolchain : riscv64-linux-gnu-gcc 15.2.0
+Runtime   : qemu-riscv64 10.2.1
+
+
+─── Scalar backend (-march=rv64gc) ─────────────────────────────────
+
 === HAL SIMD Shim Validation ===
 Architecture : scalar
 Vector width : 4 doubles per op
@@ -35,3 +43,58 @@ Vector width : 4 doubles per op
 ================================
 Results: 20 PASS, 0 FAIL
 ================================
+
+─── RVV 1.0 backend (-march=rv64gcv) ───────────────────────────────
+
+=== HAL SIMD Shim Validation ===
+Architecture : riscv_rvv
+Vector width : 4 doubles per op
+
+[hal_dot4]
+  PASS  unit_vector                     got=1.0000000000  expected=1.0000000000  err=0.00e+00
+  PASS  squares_sum_30                  got=30.0000000000  expected=30.0000000000  err=0.00e+00
+  PASS  orthogonal_zero                 got=0.0000000000  expected=0.0000000000  err=0.00e+00
+  PASS  all_ones_4                      got=4.0000000000  expected=4.0000000000  err=0.00e+00
+
+[hal_fmadd_f64x4]  — a*b + c
+  PASS  fmadd_lane0                     got=7.0000000000  expected=7.0000000000  err=0.00e+00
+  PASS  fmadd_lane1                     got=7.0000000000  expected=7.0000000000  err=0.00e+00
+  PASS  fmadd_lane2                     got=7.0000000000  expected=7.0000000000  err=0.00e+00
+  PASS  fmadd_lane3                     got=7.0000000000  expected=7.0000000000  err=0.00e+00
+  PASS  fmadd_hsum                      got=28.0000000000  expected=28.0000000000  err=0.00e+00
+
+[hal_matvec_row]  — matrix row × vector
+  PASS  matvec_n8_sum36                 got=36.0000000000  expected=36.0000000000  err=0.00e+00
+  PASS  matvec_n5_tail                  got=30.0000000000  expected=30.0000000000  err=0.00e+00
+  PASS  matvec_n4_exact                 got=10.0000000000  expected=10.0000000000  err=0.00e+00
+
+[hal_axpy4]  — y = alpha*x + y
+  PASS  axpy_lane0                      got=5.0000000000  expected=5.0000000000  err=0.00e+00
+  PASS  axpy_lane1                      got=5.0000000000  expected=5.0000000000  err=0.00e+00
+  PASS  axpy_lane2                      got=5.0000000000  expected=5.0000000000  err=0.00e+00
+  PASS  axpy_lane3                      got=5.0000000000  expected=5.0000000000  err=0.00e+00
+
+[hal_sub_f64x4]
+  PASS  sub_lane0                       got=4.0000000000  expected=4.0000000000  err=0.00e+00
+  PASS  sub_lane1                       got=3.0000000000  expected=3.0000000000  err=0.00e+00
+  PASS  sub_lane2                       got=2.0000000000  expected=2.0000000000  err=0.00e+00
+  PASS  sub_lane3                       got=1.0000000000  expected=1.0000000000  err=0.00e+00
+
+================================
+Results: 20 PASS, 0 FAIL
+================================
+
+─── Cross-backend verification ─────────────────────────────────────
+
+Bit-identical numerical results across backends: YES
+(verified via diff after stripping Architecture identification line)
+
+RVV opcode counts (objdump):
+  test_hal_riscv64_rvv    : 596 total RVV opcodes
+                            8  f64m4-specific (vfmacc.vv, vfredosum.vs, vsetvli e64,m4)
+  test_hal_riscv64_scalar : 0  f64m4 opcodes  (confirms genuine scalar build)
+
+The f64m4-specific opcodes only appear when the HAL RVV backend code path
+is compiled in — GCC auto-vectorization does not emit LMUL=4 grouping
+on its own. Their presence in the RVV binary and absence in the scalar
+binary confirms backend selection works as designed.
