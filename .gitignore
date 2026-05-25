@@ -1,7 +1,7 @@
-numerical_demo
+# Debian packaging staging directories
+**/pkg/
+**/obpkg/
 
-# Build artifacts (too large for git)
-*.a
+# Build artifacts
 *.o
 *.so
-libopenblas_*
