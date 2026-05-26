@@ -9,3 +9,4 @@
 # HAL test binaries — reproducible via `make -C hal`
 hal/test_hal_riscv64_scalar
 hal/test_hal_riscv64_rvv
+openmm-port/

@@ -1,0 +1,81 @@
+OpenMM 8.5.0 riscv64 — Phase 1B evidence summary
+Generated: 2026-05-26T03:41:25Z
+Build dir: /home/tanmay/riscv-hpc-port/openmm-port/build-riscv64
+Source:    /home/tanmay/riscv-hpc-port/openmm-port/openmm (f99249f)
+Toolchain: riscv64-linux-gnu-gcc (Ubuntu 15.2.0-16ubuntu1) 15.2.0
+QEMU:      qemu-riscv64 version 10.2.1 (Debian 1:10.2.1+ds-1ubuntu3)
+
+=== Gate 1: ELF architecture (all libraries must be riscv64) ===
+
+  libOpenMM.so                        UCB RISC-V (3366536 bytes)
+  libOpenMMCPU.so                     UCB RISC-V (646056 bytes)
+  libOpenMMPME.so                     UCB RISC-V (225488 bytes)
+  libOpenMMAmoeba.so                  UCB RISC-V (285600 bytes)
+  libOpenMMAmoebaReference.so         UCB RISC-V (519776 bytes)
+  libOpenMMDrude.so                   UCB RISC-V (110672 bytes)
+  libOpenMMDrudeReference.so          UCB RISC-V (51544 bytes)
+  libOpenMMRPMD.so                    UCB RISC-V (68592 bytes)
+  libOpenMMRPMDReference.so           UCB RISC-V (122648 bytes)
+
+=== Gate 2: RVV opcode forensics on libOpenMMCPU.so ===
+
+  Total instructions:               110659
+  Total RVV opcodes:                14425
+  vsetvli e64 (any LMUL):           156
+    of which LMUL=4 (e64,m4):       0
+    of which LMUL=2 (e64,m2):       4
+    of which LMUL=1 (e64,m1):       152
+  vfmacc.* (fused multiply-add):    237
+  vfmul.*  (multiply):              1305
+  vfadd.*  (add):                   598
+  vfred[ou]sum.* (reduction):       18
+
+=== Gate 3: Function-scoped RVV opcodes in CpuNonbondedForceFvec ===
+
+  CpuNonbondedForceFvec symbols:        0 RVV opcodes
+  CpuCustomNonbondedForceFvec symbols:  0 RVV opcodes
+  CpuPme* symbols:                      0 RVV opcodes
+
+=== Gate 4: HelloArgon smoke test under qemu-riscv64 ===
+
+  Running HelloArgon (timeout 180s)...
+  PASS (exit 0)
+  First 3 lines of output:
+    REMARK  Using OpenMM platform CPU
+    MODEL     1
+    ATOM      1  AR   AR     1       0.000   0.000   0.000  1.00  0.00
+  Last 3 lines of output:
+    ATOM      2  AR   AR     1       5.000   0.000   0.000  1.00  0.00
+    ATOM      3  AR   AR     1       9.799   0.000   0.000  1.00  0.00
+    ENDMDL
+
+=== Gate 5: Reference platform tests (subset) under qemu-riscv64 ===
+
+  TestReferenceCMMotionRemover                  PASS
+  TestReferenceHarmonicBondForce                PASS
+  TestReferenceHarmonicAngleForce               PASS
+  Reference summary: 3 PASS, 0 FAIL, 0 TIMEOUT
+
+=== Gate 6: CPU platform tests (bit-exact gate — internally compares CPU vs Reference) ===
+
+  TestCpuHarmonicBondForce                      NOT BUILT
+  TestCpuHarmonicAngleForce                     PASS
+  TestCpuNonbondedForce                         TIMEOUT
+  CPU summary: 1 PASS, 0 FAIL, 1 TIMEOUT
+
+=== Gate 7: Reproduction hashes (SHA256) ===
+
+728bb0c6b404b9d1584241af007d335ebb8ffce64309d07b6a12caad07b2dfe0  /home/tanmay/riscv-hpc-port/openmm-port/build-riscv64/libOpenMM.so
+31db0110517d9dfe36a98b436a6069977fccd9e0ea1a61bf7355197e48e9517b  /home/tanmay/riscv-hpc-port/openmm-port/build-riscv64/libOpenMMCPU.so
+f2ceb0a83c50938aa6ba73d985159bdb6e99361fcc624c1d003610326785cbcc  /home/tanmay/riscv-hpc-port/openmm-port/build-riscv64/libOpenMMPME.so
+
+=== HEADLINE ===
+
+  RVV opcodes in libOpenMMCPU.so:    14425
+  LMUL=4 f64 vsetvli sites:          0
+  Fvec hot-path RVV opcodes:         0
+  Reference tests:                   3/3 PASS
+  CPU tests (bit-exact gate):        1/2 PASS
+
+  Evidence file: /home/tanmay/riscv-hpc-port/openmm-port/logs/PHASE1B_EVIDENCE.txt
+  Disassembly:   /home/tanmay/riscv-hpc-port/openmm-port/logs/libOpenMMCPU.disasm

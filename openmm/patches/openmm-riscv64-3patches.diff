@@ -1,0 +1,42 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index e9a776b..2b14162 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -51,6 +51,10 @@ if ("${TARGET_ARCH}" MATCHES "loongarch64")
+     set(LOONGARCH64 ON)
+     add_definitions(-D__LOONGARCH64__=1 -mlsx)
+ endif()
++if ("${TARGET_ARCH}" MATCHES "riscv64")
++    set(RISCV64 ON)
++    add_definitions(-D__RISCV64__=1)
++endif()
+ 
+ 
+ # Where to install
+diff --git a/cmake_modules/TargetArch.cmake b/cmake_modules/TargetArch.cmake
+index 98602ea..40db084 100644
+--- a/cmake_modules/TargetArch.cmake
++++ b/cmake_modules/TargetArch.cmake
+@@ -89,6 +89,8 @@ set(archdetect_c_code "
+     #endif
+ #elif defined(__loongarch64)
+     #error cmake_ARCH loongarch64
++#elif defined(__riscv) && __riscv_xlen == 64
++    #error cmake_ARCH riscv64
+ #endif
+ 
+ #error cmake_ARCH unknown
+diff --git a/openmmapi/include/openmm/internal/hardware.h b/openmmapi/include/openmm/internal/hardware.h
+index 7fe4f17..2654bf8 100644
+--- a/openmmapi/include/openmm/internal/hardware.h
++++ b/openmmapi/include/openmm/internal/hardware.h
+@@ -92,7 +92,8 @@ static int getNumProcessors() {
+ #define cpuid __cpuid
+ #else
+ #if !defined(__ANDROID__) && !defined(__PNACL__) && !defined(__PPC__) \
+-    && !defined(__ARM__) && !defined(__ARM64__) && !defined(__LOONGARCH64__)
++    && !defined(__ARM__) && !defined(__ARM64__) && !defined(__LOONGARCH64__) \
++    && !defined(__riscv)
+     static void cpuid(int cpuInfo[4], int infoType) {
+     #ifdef __LP64__
+         __asm__ __volatile__ (

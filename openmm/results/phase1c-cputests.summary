@@ -1,0 +1,26 @@
+=== TestCpuPeriodicTorsionForce ===
+  PASS    (1s)
+=== TestCpuRBTorsionForce ===
+  PASS    (0s)
+=== TestCpuSettle ===
+  PASS    (8s)
+=== TestCpuCustomNonbondedForce ===
+  PASS    (28s)
+=== TestCpuPme ===
+  PASS    (10s)
+=== TestCpuLangevinIntegrator ===
+  PASS    (118s)
+=== TestCpuEwald ===
+  PASS    (13s)
+
+=== SUMMARY ===
+PASS    (7):
+  TestCpuPeriodicTorsionForce (1s)
+  TestCpuRBTorsionForce (0s)
+  TestCpuSettle (8s)
+  TestCpuCustomNonbondedForce (28s)
+  TestCpuPme (10s)
+  TestCpuLangevinIntegrator (118s)
+  TestCpuEwald (13s)
+FAIL    (0):
+TIMEOUT (0):
