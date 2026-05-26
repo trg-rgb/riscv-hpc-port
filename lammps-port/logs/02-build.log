@@ -1,0 +1,562 @@
+[0/2] Re-checking globbed directories...
+[1/539] Generating includes/lammps/angle.h
+[2/539] Generating includes/lammps/atom.h
+[3/539] Generating includes/lammps/bond.h
+[4/539] Generating includes/lammps/citeme.h
+[5/539] Generating includes/lammps/comm.h
+[6/539] Generating includes/lammps/command.h
+[7/539] Generating includes/lammps/dihedral.h
+[8/539] Generating includes/lammps/compute.h
+[9/539] Generating includes/lammps/domain.h
+[10/539] Generating includes/lammps/error.h
+[11/539] Generating includes/lammps/exceptions.h
+[12/539] Generating includes/lammps/fix.h
+[13/539] Generating includes/lammps/force.h
+[14/539] Generating includes/lammps/group.h
+[15/539] Generating includes/lammps/improper.h
+[16/539] Generating includes/lammps/input.h
+[17/539] Generating includes/lammps/info.h
+[18/539] Generating includes/lammps/json_fwd.h
+[19/539] Generating includes/lammps/json.h
+[20/539] cd /home/tanmay/riscv-hpc-port/lammps-port/build-riscv64 && /usr/bin/cmake -DLAMMPS_DIR="/home/tanmay/riscv-hpc-port/lammps-port/lammps" -DGIT_EXECUTABLE="/usr/bin/git" -DGIT_FOUND="TRUE" -DLAMMPS_STYLE_HEADERS_DIR="/home/tanmay/riscv-hpc-port/lammps-port/build-riscv64/styles" -P /home/tanmay/riscv-hpc-port/lammps-port/lammps/cmake/Modules/generate_lmpgitversion.cmake
+-- Git Directory: /home/tanmay/riscv-hpc-port/lammps-port/lammps/.git
+-- Generating lmpgitversion.h...
+[21/539] Generating includes/lammps/lammps.h
+[22/539] Generating includes/lammps/lattice.h
+[23/539] Generating includes/lammps/library.h
+[24/539] Generating includes/lammps/kspace.h
+[25/539] Generating includes/lammps/lmppython.h
+[26/539] Generating includes/lammps/lmptype.h
+[27/539] Generating includes/lammps/modify.h
+[28/539] Generating includes/lammps/neighbor.h
+[29/539] Generating includes/lammps/memory.h
+[30/539] Generating includes/lammps/output.h
+[31/539] Generating includes/lammps/neigh_list.h
+[32/539] Generating includes/lammps/pair.h
+[33/539] Generating includes/lammps/region.h
+[34/539] Generating includes/lammps/timer.h
+[35/539] Generating includes/lammps/universe.h
+[36/539] Generating includes/lammps/platform.h
+[37/539] Generating includes/lammps/pointers.h
+[38/539] Generating includes/lammps/update.h
+[39/539] Generating includes/lammps/variable.h
+[40/539] Generating includes/lammps/fmt/core.h
+[41/539] Generating includes/lammps/utils.h
+[42/539] Generating includes/lammps/nlohmann/json_fwd.hpp
+[43/539] Generating includes/lammps/fmt/format.h
+[44/539] Generating includes/lammps/nlohmann/json.hpp
+[45/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/arg_info.cpp.o
+[46/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/angle_deprecated.cpp.o
+[47/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/angle_zero.cpp.o
+[48/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/angle.cpp.o
+[49/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/angle_hybrid.cpp.o
+[50/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/angle_write.cpp.o
+[51/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/atom_map.cpp.o
+[52/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/atom_vec_atomic.cpp.o
+[53/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/atom_vec_charge.cpp.o
+[54/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/atom_vec_body.cpp.o
+[55/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/atom_vec_ellipsoid.cpp.o
+[56/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/atom_vec_hybrid.cpp.o
+[57/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/atom_vec_line.cpp.o
+[58/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/atom_vec_sphere.cpp.o
+[59/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/body.cpp.o
+[60/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/atom_vec.cpp.o
+[61/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/atom_vec_tri.cpp.o
+[62/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/bond.cpp.o
+[63/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/bond_deprecated.cpp.o
+[64/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/bond_zero.cpp.o
+[65/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/balance.cpp.o
+[66/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/bond_hybrid.cpp.o
+[67/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/citeme.cpp.o
+[68/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/atom.cpp.o
+[69/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/change_box.cpp.o
+[70/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/compute.cpp.o
+[71/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/compute_aggregate_atom.cpp.o
+[72/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/compute_angle.cpp.o
+[73/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/comm_brick.cpp.o
+[74/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/comm.cpp.o
+[75/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/compute_angmom_chunk.cpp.o
+[76/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/compute_angle_local.cpp.o
+[77/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/compute_bond.cpp.o
+[78/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/comm_tiled.cpp.o
+[79/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/compute_centro_atom.cpp.o
+[80/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/compute_bond_local.cpp.o
+[81/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/compute_chunk.cpp.o
+[82/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/compute_centroid_stress_atom.cpp.o
+[83/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/compute_cluster_atom.cpp.o
+[84/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/compute_com.cpp.o
+[85/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/compute_chunk_spread_atom.cpp.o
+[86/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/compute_cna_atom.cpp.o
+[87/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/compute_com_chunk.cpp.o
+[88/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/compute_deprecated.cpp.o
+[89/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/compute_coord_atom.cpp.o
+[90/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/compute_count_type.cpp.o
+[91/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/compute_dihedral.cpp.o
+[92/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/compute_chunk_atom.cpp.o
+[93/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/compute_dihedral_local.cpp.o
+[94/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/compute_dipole.cpp.o
+[95/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/compute_dipole_chunk.cpp.o
+[96/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/compute_erotate_sphere.cpp.o
+[97/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/compute_displace_atom.cpp.o
+[98/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/compute_erotate_sphere_atom.cpp.o
+[99/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/compute_fragment_atom.cpp.o
+[100/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/compute_gyration.cpp.o
+[101/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/compute_group_group.cpp.o
+[102/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/compute_gyration_chunk.cpp.o
+[103/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/compute_heat_flux.cpp.o
+[104/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/compute_global_atom.cpp.o
+[105/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/compute_improper.cpp.o
+[106/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/compute_ke.cpp.o
+[107/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/compute_inertia_chunk.cpp.o
+[108/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/compute_improper_local.cpp.o
+[109/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/compute_ke_atom.cpp.o
+[110/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/compute_msd.cpp.o
+[111/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/compute_msd_chunk.cpp.o
+[112/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/compute_pair.cpp.o
+[113/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/compute_omega_chunk.cpp.o
+[114/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/compute_pair_local.cpp.o
+[115/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/compute_pe.cpp.o
+[116/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/compute_orientorder_atom.cpp.o
+[117/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/compute_pe_atom.cpp.o
+[118/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/compute_property_chunk.cpp.o
+[119/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/compute_pressure.cpp.o
+[120/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/compute_rdf.cpp.o
+[121/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/compute_property_local.cpp.o
+[122/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/compute_property_grid.cpp.o
+[123/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/compute_reduce_chunk.cpp.o
+[124/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/compute_reduce_region.cpp.o
+[125/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/compute_reduce.cpp.o
+[126/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/compute_temp.cpp.o
+[127/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/compute_stress_atom.cpp.o
+[128/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/compute_slice.cpp.o
+[129/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/compute_property_atom.cpp.o
+[130/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/compute_temp_chunk.cpp.o
+[131/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/compute_temp_com.cpp.o
+[132/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/compute_temp_partial.cpp.o
+[133/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/compute_temp_deform.cpp.o
+[134/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/compute_temp_ramp.cpp.o
+[135/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/compute_temp_profile.cpp.o
+[136/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/compute_temp_region.cpp.o
+[137/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/compute_temp_sphere.cpp.o
+[138/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/compute_torque_chunk.cpp.o
+[139/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/compute_vacf.cpp.o
+[140/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/compute_vacf_chunk.cpp.o
+[141/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/compute_vcm_chunk.cpp.o
+[142/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/deprecated.cpp.o
+[143/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/create_box.cpp.o
+[144/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/create_bonds.cpp.o
+[145/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/dihedral_deprecated.cpp.o
+[146/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/dihedral.cpp.o
+[147/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/dihedral_hybrid.cpp.o
+[148/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/delete_atoms.cpp.o
+[149/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/delete_bonds.cpp.o
+[150/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/dihedral_zero.cpp.o
+[151/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/create_atoms.cpp.o
+[152/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/dihedral_write.cpp.o
+[153/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/displace_atoms.cpp.o
+[154/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/dump_cfg.cpp.o
+[155/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/dump_deprecated.cpp.o
+[156/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/dump_atom.cpp.o
+[157/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/dump.cpp.o
+[158/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/dump_grid_vtk.cpp.o
+[159/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/domain.cpp.o
+[160/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/dump_xyz.cpp.o
+[161/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/dump_grid.cpp.o
+[162/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/error.cpp.o
+[163/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/dump_local.cpp.o
+[164/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/fix.cpp.o
+[165/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/finish.cpp.o
+[166/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/fix_addforce.cpp.o
+[167/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/fix_ave_atom.cpp.o
+[168/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/dump_custom.cpp.o
+[169/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/fix_adapt.cpp.o
+[170/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/fix_ave_correlate.cpp.o
+[171/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/fix_ave_histo_weight.cpp.o
+[172/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/fix_ave_chunk.cpp.o
+[173/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/fix_ave_histo.cpp.o
+[174/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/fix_balance.cpp.o
+[175/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/fix_aveforce.cpp.o
+[176/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/fix_ave_grid.cpp.o
+[177/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/fix_bond_history.cpp.o
+[178/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/fix_deprecated.cpp.o
+[179/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/fix_ave_time.cpp.o
+[180/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/fix_dt_reset.cpp.o
+[181/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/fix_box_relax.cpp.o
+[182/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/fix_dummy.cpp.o
+[183/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/fix_deposit.cpp.o
+[184/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/fix_enforce2d.cpp.o
+[185/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/fix_external.cpp.o
+[186/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/fix_evaporate.cpp.o
+[187/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/fix_efield.cpp.o
+[188/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/fix_gravity.cpp.o
+[189/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/fix_group.cpp.o
+[190/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/fix_deform.cpp.o
+[191/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/fix_halt.cpp.o
+[192/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/fix_heat.cpp.o
+[193/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/fix_lineforce.cpp.o
+[194/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/fix_minimize.cpp.o
+[195/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/fix_momentum.cpp.o
+[196/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/fix_indent.cpp.o
+[197/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/fix_nph.cpp.o
+[198/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/fix_langevin.cpp.o
+[199/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/fix_nh_sphere.cpp.o
+[200/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/fix_neigh_history.cpp.o
+[201/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/fix_move.cpp.o
+[202/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/fix_nph_sphere.cpp.o
+[203/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/fix_npt.cpp.o
+[204/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/fix_npt_sphere.cpp.o
+[205/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/fix_nve.cpp.o
+[206/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/fix_nve_limit.cpp.o
+[207/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/fix_nve_noforce.cpp.o
+[208/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/fix_nvt.cpp.o
+[209/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/fix_nve_sphere.cpp.o
+[210/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/fix_nvt_sphere.cpp.o
+[211/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/fix_nvt_sllod.cpp.o
+[212/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/fix_planeforce.cpp.o
+[213/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/fix_pair.cpp.o
+[214/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/fix_nh.cpp.o
+[215/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/fix_print.cpp.o
+[216/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/fix_press_berendsen.cpp.o
+[217/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/fix_read_restart.cpp.o
+[218/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/fix_recenter.cpp.o
+[219/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/fix_respa.cpp.o
+[220/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/fix_press_langevin.cpp.o
+[221/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/fix_set.cpp.o
+[222/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/fix_property_atom.cpp.o
+[223/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/fix_restrain.cpp.o
+[224/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/fix_setforce.cpp.o
+[225/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/fix_spring_chunk.cpp.o
+[226/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/fix_spring.cpp.o
+[227/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/fix_spring_self.cpp.o
+[228/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/fix_store_atom.cpp.o
+[229/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/fix_store_global.cpp.o
+[230/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/fix_store_force.cpp.o
+[231/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/fix_store_local.cpp.o
+[232/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/fix_temp_berendsen.cpp.o
+[233/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/fix_temp_rescale.cpp.o
+[234/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/fix_viscous.cpp.o
+[235/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/fix_thermal_conductivity.cpp.o
+[236/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/fix_vector.cpp.o
+[237/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/fix_wall_harmonic.cpp.o
+[238/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/fix_wall_lj1043.cpp.o
+[239/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/fix_wall_harmonic_outside.cpp.o
+[240/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/fix_store_state.cpp.o
+[241/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/fix_wall_lj126.cpp.o
+[242/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/fix_wall.cpp.o
+[243/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/fix_wall_lj93.cpp.o
+[244/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/fix_wall_morse.cpp.o
+[245/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/fix_wall_region.cpp.o
+[246/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/fix_wall_reflect.cpp.o
+[247/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/fix_wall_table.cpp.o
+[248/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/fmtlib_os.cpp.o
+[249/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/imbalance.cpp.o
+[250/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/grid2d.cpp.o
+[251/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/imbalance_group.cpp.o
+[252/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/grid3d.cpp.o
+[253/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/imbalance_store.cpp.o
+[254/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/imbalance_neigh.cpp.o
+[255/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/imbalance_time.cpp.o
+[256/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/imbalance_var.cpp.o
+[257/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/improper_deprecated.cpp.o
+[258/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/group.cpp.o
+[259/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/improper.cpp.o
+[260/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/force.cpp.o
+[261/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/improper_zero.cpp.o
+[262/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/improper_hybrid.cpp.o
+[263/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/integrate.cpp.o
+[264/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/kspace_deprecated.cpp.o
+[265/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/fmtlib_format.cpp.o
+[266/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/irregular.cpp.o
+[267/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/kspace_zero.cpp.o
+[268/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/kspace.cpp.o
+[269/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/input.cpp.o
+[270/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/lattice.cpp.o
+[271/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/lmppython.cpp.o
+[272/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/label_map.cpp.o
+[273/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/math_special.cpp.o
+[274/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/math_extra.cpp.o
+[275/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/math_eigen.cpp.o
+[276/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/info.cpp.o
+[277/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/memory.cpp.o
+[278/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/min_cg.cpp.o
+[279/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/min_deprecated.cpp.o
+[280/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/min.cpp.o
+[281/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/min_linesearch.cpp.o
+[282/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/min_quickmin.cpp.o
+[283/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/min_hftn.cpp.o
+[284/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/min_fire.cpp.o
+[285/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/min_sd.cpp.o
+[286/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/minimize.cpp.o
+[287/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/my_page.cpp.o
+[288/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/my_pool_chunk.cpp.o
+[289/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/nbin.cpp.o
+[290/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/nbin_multi.cpp.o
+[291/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/nbin_standard.cpp.o
+[292/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/neigh_list.cpp.o
+[293/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/neigh_request.cpp.o
+[294/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/npair.cpp.o
+[295/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/modify.cpp.o
+[296/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/npair_bin_ghost.cpp.o
+[297/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/npair_copy.cpp.o
+[298/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/npair_bin.cpp.o
+[299/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/library.cpp.o
+[300/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/neighbor.cpp.o
+[301/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/npair_halffull.cpp.o
+[302/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/npair_nsq_ghost.cpp.o
+[303/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/npair_nsq.cpp.o
+[304/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/npair_respa_bin.cpp.o
+[305/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/npair_multi.cpp.o
+[306/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/npair_respa_nsq.cpp.o
+[307/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/npair_skip.cpp.o
+[308/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/npair_skip_respa.cpp.o
+[309/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/npair_skip_size_off2on.cpp.o
+[310/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/npair_trim.cpp.o
+[311/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/npair_skip_size_off2on_oneside.cpp.o
+[312/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/nstencil_bin.cpp.o
+[313/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/nstencil.cpp.o
+[314/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/nstencil_ghost_bin.cpp.o
+[315/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/nstencil_multi.cpp.o
+[316/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/ntopo.cpp.o
+[317/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/ntopo_angle_all.cpp.o
+[318/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/ntopo_angle_partial.cpp.o
+[319/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/ntopo_angle_template.cpp.o
+[320/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/ntopo_bond_all.cpp.o
+[321/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/ntopo_bond_partial.cpp.o
+[322/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/ntopo_bond_template.cpp.o
+[323/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/ntopo_dihedral_all.cpp.o
+[324/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/ntopo_dihedral_partial.cpp.o
+[325/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/ntopo_dihedral_template.cpp.o
+[326/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/ntopo_improper_all.cpp.o
+[327/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/ntopo_improper_partial.cpp.o
+[328/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/ntopo_improper_template.cpp.o
+[329/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/pair_born.cpp.o
+[330/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/pair_buck.cpp.o
+[331/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/pair.cpp.o
+[332/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/output.cpp.o
+[333/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/pair_buck_coul_cut.cpp.o
+[334/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/pair_coul_cut.cpp.o
+[335/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/pair_coul_debye.cpp.o
+[336/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/pair_coul_dsf.cpp.o
+[337/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/pair_coul_wolf.cpp.o
+[338/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/pair_deprecated.cpp.o
+[339/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/pair_hybrid_molecular.cpp.o
+[340/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/pair_hybrid_overlay.cpp.o
+[341/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/pair_hybrid.cpp.o
+[342/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/pair_hybrid_scaled.cpp.o
+[343/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/pair_lj_cut.cpp.o
+[344/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/pair_lj_cut_coul_cut.cpp.o
+[345/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/pair_lj_expand.cpp.o
+[346/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/pair_morse.cpp.o
+[347/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/pair_soft.cpp.o
+[348/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/pair_table.cpp.o
+[349/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/pair_zero.cpp.o
+[350/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/pair_yukawa.cpp.o
+[351/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/pair_zbl.cpp.o
+[352/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/random_mars.cpp.o
+[353/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/potential_file_reader.cpp.o
+[354/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/random_park.cpp.o
+[355/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/procmap.cpp.o
+[356/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/platform.cpp.o
+[357/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/rcb.cpp.o
+[358/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/reader.cpp.o
+[359/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/read_dump.cpp.o
+[360/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/read_restart.cpp.o
+[361/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/reader_native.cpp.o
+[362/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/reader_xyz.cpp.o
+[363/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/region.cpp.o
+[364/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/region_block.cpp.o
+[365/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/molecule.cpp.o
+[366/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/region_deprecated.cpp.o
+[367/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/region_cone.cpp.o
+[368/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/region_cylinder.cpp.o
+[369/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/region_ellipsoid.cpp.o
+[370/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/region_plane.cpp.o
+[371/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/region_intersect.cpp.o
+[372/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/read_data.cpp.o
+[373/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/region_sphere.cpp.o
+[374/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/region_union.cpp.o
+[375/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/region_prism.cpp.o
+[376/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/lammps.cpp.o
+[377/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/rerun.cpp.o
+[378/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/replicate.cpp.o
+[379/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/reset_atoms_id.cpp.o
+[380/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/reset_atoms_image.cpp.o
+[381/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/safe_pointers.cpp.o
+[382/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/reset_atoms_mol.cpp.o
+[383/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/tabular_function.cpp.o
+[384/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/table_file_reader.cpp.o
+[385/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/run.cpp.o
+[386/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/respa.cpp.o
+[387/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/text_file_reader.cpp.o
+[388/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/timer.cpp.o
+[389/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/universe.cpp.o
+[390/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/tokenizer.cpp.o
+[391/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/special.cpp.o
+[392/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/update.cpp.o
+[393/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/velocity.cpp.o
+[394/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/verlet.cpp.o
+[395/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/set.cpp.o
+[396/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/thermo.cpp.o
+[397/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/write_coeff.cpp.o
+[398/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/write_dump.cpp.o
+[399/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/STUBS/mpi.cpp.o
+[400/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/utils.cpp.o
+[401/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/write_data.cpp.o
+[402/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/write_restart.cpp.o
+[403/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/KSPACE/ewald_dipole.cpp.o
+[404/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/write_molecule.cpp.o
+[405/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/KSPACE/ewald.cpp.o
+[406/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/KSPACE/ewald_dipole_spin.cpp.o
+[407/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/KSPACE/fft3d_wrap.cpp.o
+[408/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/KSPACE/fft3d.cpp.o
+[409/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/KSPACE/fix_tune_kspace.cpp.o
+[410/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/KSPACE/esp.cpp.o
+[411/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/KSPACE/ewald_disp.cpp.o
+[412/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/KSPACE/msm_cg.cpp.o
+[413/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/KSPACE/pair_born_coul_msm.cpp.o
+[414/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/KSPACE/pair_born_coul_long.cpp.o
+[415/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/KSPACE/math_pswf.cpp.o
+[416/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/KSPACE/pair_buck_coul_msm.cpp.o
+[417/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/KSPACE/pair_buck_coul_long.cpp.o
+[418/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/KSPACE/pair_coul_esp.cpp.o
+[419/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/KSPACE/pair_coul_msm.cpp.o
+[420/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/KSPACE/pair_buck_long_coul_long.cpp.o
+[421/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/KSPACE/pair_coul_long.cpp.o
+[422/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/KSPACE/msm.cpp.o
+[423/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/KSPACE/pair_coul_streitz.cpp.o
+[424/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/KSPACE/pair_lj_charmm_coul_msm.cpp.o
+[425/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/KSPACE/pair_lj_charmm_coul_long.cpp.o
+[426/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/KSPACE/pair_lj_charmmfsw_coul_long.cpp.o
+[427/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/KSPACE/pair_lj_cut_coul_esp.cpp.o
+[428/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/variable.cpp.o
+In file included from /usr/riscv64-linux-gnu/include/stdio.h:974,
+                 from /usr/riscv64-linux-gnu/include/c++/15/cstdio:47,
+                 from /home/tanmay/riscv-hpc-port/lammps-port/lammps/src/pointers.h:29,
+                 from /home/tanmay/riscv-hpc-port/lammps-port/lammps/src/variable.h:17,
+                 from /home/tanmay/riscv-hpc-port/lammps-port/lammps/src/variable.cpp:15:
+In function ‘char* fgets(char*, int, FILE*)’,
+    inlined from ‘int LAMMPS_NS::VarReader::read_scalar(char*)’ at /home/tanmay/riscv-hpc-port/lammps-port/lammps/src/variable.cpp:5796:18:
+/usr/riscv64-linux-gnu/include/bits/stdio2.h:313:26: warning: argument 1 is null but the corresponding size argument 2 value is 256 [-Wnonnull]
+  313 |     return __fgets_alias (__s, __n, __stream);
+      |            ~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~
+In file included from /usr/riscv64-linux-gnu/include/features.h:539,
+                 from /usr/riscv64-linux-gnu/include/c++/15/riscv64-linux-gnu/bits/os_defines.h:39,
+                 from /usr/riscv64-linux-gnu/include/c++/15/riscv64-linux-gnu/bits/c++config.h:727,
+                 from /usr/riscv64-linux-gnu/include/c++/15/cstdint:40,
+                 from /usr/riscv64-linux-gnu/include/c++/15/cinttypes:40,
+                 from /home/tanmay/riscv-hpc-port/lammps-port/lammps/src/lmptype.h:45,
+                 from /home/tanmay/riscv-hpc-port/lammps-port/lammps/src/pointers.h:25:
+/usr/riscv64-linux-gnu/include/bits/stdio2-decl.h: In member function ‘int LAMMPS_NS::VarReader::read_scalar(char*)’:
+/usr/riscv64-linux-gnu/include/bits/stdio2-decl.h:96:14: note: in a call to function ‘char* __fgets_alias(char*, int, FILE*)’ declared with attribute ‘access (write_only, 1, 2)’
+   96 | extern char *__REDIRECT (__fgets_alias,
+      |              ^~~~~~~~~~
+[429/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/KSPACE/pair_lj_cut_coul_msm.cpp.o
+[430/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/KSPACE/pair_lj_cut_coul_long.cpp.o
+[431/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/KSPACE/pair_lj_cut_tip4p_long.cpp.o
+[432/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/KSPACE/pair_tip4p_long.cpp.o
+[433/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/KSPACE/pair_lj_long_coul_long.cpp.o
+[434/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/KSPACE/pppm_cg.cpp.o
+[435/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/KSPACE/pair_lj_long_tip4p_long.cpp.o
+[436/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/KSPACE/pppm_dipole_spin.cpp.o
+[437/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/KSPACE/pppm_disp_tip4p.cpp.o
+[438/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/KSPACE/remap.cpp.o
+[439/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/KSPACE/pppm_tip4p.cpp.o
+[440/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/KSPACE/pppm_stagger.cpp.o
+[441/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/KSPACE/pppm.cpp.o
+[442/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/KSPACE/remap_wrap.cpp.o
+[443/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/MANYBODY/fix_qeq_comb.cpp.o
+[444/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/MANYBODY/pair_airebo_morse.cpp.o
+[445/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/KSPACE/pppm_dipole.cpp.o
+[446/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/MANYBODY/pair_adp.cpp.o
+[447/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/MANYBODY/pair_atm.cpp.o
+[448/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/MANYBODY/pair_comb.cpp.o
+[449/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/MANYBODY/pair_eam.cpp.o
+[450/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/MANYBODY/pair_bop.cpp.o
+[451/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/MANYBODY/pair_eam_alloy.cpp.o
+[452/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/MANYBODY/pair_eam_fs.cpp.o
+[453/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/MANYBODY/pair_eam_cd.cpp.o
+[454/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/MANYBODY/pair_comb3.cpp.o
+[455/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/MANYBODY/pair_eam_he.cpp.o
+[456/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/MANYBODY/pair_airebo.cpp.o
+[457/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/MANYBODY/pair_edip.cpp.o
+[458/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/MANYBODY/pair_edip_multi.cpp.o
+[459/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/MANYBODY/pair_gw_zbl.cpp.o
+[460/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/MANYBODY/pair_gw.cpp.o
+[461/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/MANYBODY/pair_extep.cpp.o
+[462/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/MANYBODY/pair_eim.cpp.o
+[463/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/MANYBODY/pair_lcbop.cpp.o
+[464/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/KSPACE/pppm_disp.cpp.o
+[465/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/MANYBODY/pair_nb3b_screened.cpp.o
+[466/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/MANYBODY/pair_local_density.cpp.o
+[467/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/MANYBODY/pair_meam_sw_spline.cpp.o
+[468/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/MANYBODY/pair_nb3b_harmonic.cpp.o
+[469/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/MANYBODY/pair_meam_spline.cpp.o
+[470/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/MANYBODY/pair_rebo.cpp.o
+[471/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/MANYBODY/pair_sw_mod.cpp.o
+[472/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/MANYBODY/pair_polymorphic.cpp.o
+[473/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/MANYBODY/pair_sw.cpp.o
+[474/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/MANYBODY/pair_rebomos.cpp.o
+[475/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/MANYBODY/pair_sw_angle_table.cpp.o
+[476/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/MANYBODY/pair_tersoff_mod_c.cpp.o
+[477/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/MANYBODY/pair_tersoff_mod.cpp.o
+[478/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/MANYBODY/pair_tersoff_zbl.cpp.o
+[479/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/MANYBODY/pair_tersoff.cpp.o
+[480/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/MANYBODY/pair_tersoff_table.cpp.o
+[481/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/MANYBODY/pair_vashishta_table.cpp.o
+[482/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/MANYBODY/pair_threebody_table.cpp.o
+[483/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/MANYBODY/pair_vashishta.cpp.o
+[484/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/MOLECULE/angle_charmm.cpp.o
+[485/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/MOLECULE/angle_cosine.cpp.o
+[486/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/MOLECULE/angle_cosine_squared.cpp.o
+[487/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/MOLECULE/angle_harmonic.cpp.o
+[488/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/MOLECULE/atom_vec_angle.cpp.o
+[489/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/MOLECULE/angle_table.cpp.o
+[490/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/MOLECULE/atom_vec_bond.cpp.o
+[491/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/MOLECULE/atom_vec_full.cpp.o
+[492/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/MOLECULE/atom_vec_molecular.cpp.o
+[493/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/MOLECULE/atom_vec_template.cpp.o
+[494/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/MOLECULE/bond_fene.cpp.o
+[495/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/MOLECULE/bond_fene_expand.cpp.o
+[496/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/MOLECULE/bond_gromos.cpp.o
+[497/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/MOLECULE/bond_harmonic.cpp.o
+[498/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/MOLECULE/bond_morse.cpp.o
+[499/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/MOLECULE/bond_quartic.cpp.o
+[500/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/MOLECULE/dihedral_charmm.cpp.o
+[501/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/MOLECULE/dihedral_charmmfsw.cpp.o
+[502/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/MOLECULE/bond_table.cpp.o
+[503/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/MOLECULE/dihedral_harmonic.cpp.o
+[504/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/MOLECULE/dihedral_multi_harmonic.cpp.o
+[505/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/MOLECULE/dihedral_opls.cpp.o
+[506/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/MOLECULE/improper_cvff.cpp.o
+[507/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/MOLECULE/improper_harmonic.cpp.o
+[508/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/MOLECULE/improper_umbrella.cpp.o
+[509/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/MOLECULE/dihedral_table.cpp.o
+[510/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/MOLECULE/pair_hbond_dreiding_lj.cpp.o
+[511/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/MOLECULE/fix_cmap.cpp.o
+[512/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/MOLECULE/pair_lj_charmm_coul_charmm_implicit.cpp.o
+[513/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/MOLECULE/pair_hbond_dreiding_morse.cpp.o
+[514/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/MOLECULE/pair_lj_charmm_coul_charmm.cpp.o
+[515/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/MOLECULE/pair_lj_charmmfsw_coul_charmmfsh.cpp.o
+[516/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/RIGID/compute_erotate_rigid.cpp.o
+[517/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/RIGID/compute_ke_rigid.cpp.o
+[518/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/RIGID/compute_rigid_local.cpp.o
+[519/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/MOLECULE/pair_tip4p_cut.cpp.o
+[520/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/MOLECULE/pair_lj_cut_tip4p_cut.cpp.o
+[521/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/RIGID/fix_ehex.cpp.o
+[522/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/RIGID/fix_rigid_nph.cpp.o
+[523/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/RIGID/fix_rattle.cpp.o
+[524/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/RIGID/fix_rigid_nph_small.cpp.o
+[525/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/RIGID/fix_rigid_npt.cpp.o
+[526/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/RIGID/fix_rigid_npt_small.cpp.o
+[527/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/RIGID/fix_rigid_nh.cpp.o
+[528/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/RIGID/fix_rigid_nh_small.cpp.o
+[529/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/RIGID/fix_rigid_nve.cpp.o
+[530/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/RIGID/fix_rigid_nve_small.cpp.o
+[531/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/RIGID/fix_rigid_nvt_small.cpp.o
+[532/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/RIGID/fix_rigid_nvt.cpp.o
+[533/539] Building CXX object CMakeFiles/lmp.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/main.cpp.o
+[534/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/RIGID/fix_rigid.cpp.o
+[535/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/RIGID/fix_shake.cpp.o
+[536/539] Building CXX object CMakeFiles/lammps.dir/home/tanmay/riscv-hpc-port/lammps-port/lammps/src/RIGID/fix_rigid_small.cpp.o
+[537/539] Linking CXX static library liblammps.a
+[538/539] Linking CXX executable lmp

@@ -1,0 +1,108 @@
+LAMMPS riscv64 — Phase 1B evidence summary
+Generated: 2026-05-26T13:19:10Z
+Build:     /home/tanmay/riscv-hpc-port/lammps-port/build-riscv64
+Source:    /home/tanmay/riscv-hpc-port/lammps-port/lammps (7f680de, 30 Mar 2026)
+Toolchain: riscv64-linux-gnu-gcc (Ubuntu 15.2.0-16ubuntu1) 15.2.0
+QEMU:      qemu-riscv64 version 10.2.1 (Debian 1:10.2.1+ds-1ubuntu3)
+
+=== Gate 1: ELF architecture of lmp ===
+
+/home/tanmay/riscv-hpc-port/lammps-port/build-riscv64/lmp: ELF 64-bit LSB pie executable, UCB RISC-V, RVC, double-float ABI, version 1 (GNU/Linux), dynamically linked, interpreter /lib/ld-linux-riscv64-lp64d.so.1, BuildID[sha1]=6d686a8906effb216034bfc8e564679bae5e2b21, for GNU/Linux 4.15.0, not stripped
+
+=== Gate 2: lmp -help smoke test under qemu-riscv64 ===
+
+  PASS — first 5 lines of -help output:
+    
+    Large-scale Atomic/Molecular Massively Parallel Simulator - 30 Mar 2026 - Development
+    Git info (develop / 7f680de)
+    
+    Usage example: /home/tanmay/riscv-hpc-port/lammps-port/build-riscv64/lmp -var t 300 -echo screen -in in.alloy
+  Active packages (from -help):
+    Installed packages:
+    
+
+=== Gate 3: Lennard-Jones melt example end-to-end ===
+
+  Modified input file (first 30 lines):
+    # 3d Lennard-Jones melt
+    
+    units           lj
+    atom_style      atomic
+    
+    lattice         fcc 0.8442
+    region          box block 0 10 0 10 0 10
+    create_box      1 box
+    create_atoms    1 box
+    mass            1 1.0
+    
+    velocity        all create 3.0 87287 loop geom
+    
+    pair_style      lj/cut 2.5
+    pair_coeff      1 1 1.0 1.0 2.5
+    
+    neighbor        0.3 bin
+    neigh_modify    every 20 delay 0 check no
+    
+    fix             1 all nve
+    
+    dump           1 all atom 25 dump.melt
+    
+    #dump           2 all image 25 image.*.jpg type type &
+    #               axes yes 0.8 0.02 view 60 -30
+    #dump_modify    2 pad 3
+    
+    #dump           3 all movie 25 movie.mpg type type &
+    #               axes yes 0.8 0.02 view 60 -30
+    #dump_modify    3 pad 3
+  Running... (timeout 600s, expect ~1-3 min under qemu)
+  PASS (exit 0, 8s wall under qemu)
+  Thermo summary from the run:
+
+=== Gate 4: trajectory dump file produced ===
+
+  PASS — dump.melt produced
+    Frames:    11
+    Atoms:     4000 per frame
+    File size: 1431509 bytes
+
+  First 8 lines (timestep 0 header + first atoms):
+      ITEM: TIMESTEP
+      0
+      ITEM: NUMBER OF ATOMS
+      4000
+      ITEM: BOX BOUNDS pp pp pp
+      0.0000000000000000e+00 1.6795961913825074e+01
+      0.0000000000000000e+00 1.6795961913825074e+01
+      0.0000000000000000e+00 1.6795961913825074e+01
+
+=== Gate 5: RVV opcode forensics on lmp binary ===
+
+  Total instructions:               2258366
+  Total RVV opcodes:                63913
+  vsetvli e64 (any LMUL):           10035
+    of which LMUL=4 (e64,m4):       0
+    of which LMUL=2 (e64,m2):       6
+    of which LMUL=1 (e64,m1):       10028
+  vsetvli e32 (any LMUL):           2967
+  vfmacc.* (fused multiply-add):    287
+  vfmul.*:                          1198
+  vfadd.*:                          356
+  vfred[ou]sum.* (reduction):       235
+
+=== Gate 6: RVV opcodes by function (top 15) ===
+
+    1172  std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string<std::allocator<char> >(char const*, std::allocator<char> const&) [clone .constprop.0]
+     670  LAMMPS_NS::Variable::evaluate(char*, LAMMPS_NS::Variable::Tree**, int)
+     520  LAMMPS_NS::PPPMDisp::allocate()
+     479  LAMMPS_NS::FixRigid::FixRigid(LAMMPS_NS::LAMMPS*, int, char**)
+     424  LAMMPS_NS::PairAIREBO::spline_init()
+     399  LAMMPS_NS::ReadData::command(int, char**)
+     338  LAMMPS_NS::Group::assign(int, char**)
+     330  LAMMPS_NS::FixAveChunk::FixAveChunk(LAMMPS_NS::LAMMPS*, int, char**)
+     305  LAMMPS_NS::PairAIREBO::Sptricubic_patch_coeffs(double, double, double, double, double, double, double*, double*, double*, double*, double*)
+     297  LAMMPS_NS::FixStoreState::FixStoreState(LAMMPS_NS::LAMMPS*, int, char**)
+     296  LAMMPS_NS::DumpCustom::modify_param(int, char**)
+     291  LAMMPS_NS::FixAdapt::FixAdapt(LAMMPS_NS::LAMMPS*, int, char**)
+     286  LAMMPS_NS::CreateAtoms::command(int, char**)
+     278  LAMMPS_NS::Thermo::modify_params(int, char**)
+     276  LAMMPS_NS::FixRigidSmall::FixRigidSmall(LAMMPS_NS::LAMMPS*, int, char**)

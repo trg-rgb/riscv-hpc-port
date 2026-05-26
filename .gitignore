@@ -10,3 +10,9 @@
 hal/test_hal_riscv64_scalar
 hal/test_hal_riscv64_rvv
 openmm-port/
+
+# LAMMPS port — heavy regenerable artifacts
+lammps-port/lammps/
+lammps-port/build-riscv64/
+lammps-port/run-melt/melt_frames/
+lammps-port/logs/lmp.disasm
