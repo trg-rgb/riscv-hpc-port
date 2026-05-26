@@ -1,14 +1,21 @@
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index e9a776b..2b14162 100644
+index e9a776b..d3a2f6e 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -51,6 +51,10 @@ if ("${TARGET_ARCH}" MATCHES "loongarch64")
+@@ -51,6 +51,17 @@ if ("${TARGET_ARCH}" MATCHES "loongarch64")
      set(LOONGARCH64 ON)
      add_definitions(-D__LOONGARCH64__=1 -mlsx)
  endif()
 +if ("${TARGET_ARCH}" MATCHES "riscv64")
 +    set(RISCV64 ON)
 +    add_definitions(-D__RISCV64__=1)
++endif()
++
++# Optional override of the runtime default plugin directory baked into
++# libOpenMM. Useful for cross-builds where the install destination
++# differs from the runtime location (e.g. Debian .deb to a multiarch path).
++if(OPENMM_DEFAULT_PLUGIN_DIR)
++    add_definitions(-DOPENMM_DEFAULT_PLUGIN_DIR="${OPENMM_DEFAULT_PLUGIN_DIR}")
 +endif()
  
  
@@ -26,6 +33,22 @@ index 98602ea..40db084 100644
  #endif
  
  #error cmake_ARCH unknown
+diff --git a/olla/src/Platform.cpp b/olla/src/Platform.cpp
+index 8062847..deeccd1 100644
+--- a/olla/src/Platform.cpp
++++ b/olla/src/Platform.cpp
+@@ -340,7 +340,11 @@ const string& Platform::getDefaultPluginsDirectory() {
+     }
+ #else
+     if (dir == NULL)
++#ifdef OPENMM_DEFAULT_PLUGIN_DIR
++        directory = OPENMM_DEFAULT_PLUGIN_DIR;
++#else
+         directory = "/usr/local/openmm/lib/plugins";
++#endif
+     else
+         directory = string(dir);
+ #endif
 diff --git a/openmmapi/include/openmm/internal/hardware.h b/openmmapi/include/openmm/internal/hardware.h
 index 7fe4f17..2654bf8 100644
 --- a/openmmapi/include/openmm/internal/hardware.h
