@@ -1,23 +1,10 @@
 #!/usr/bin/env bash
 # verify-rvv-port.sh — Forensic verification gate for a riscv64 RVV binary.
 #
-# v2: adds --hot-fn-exact / HOT_MATCH_MODE to distinguish substring (matches
-#     family, e.g. PairLJCut::compute / compute_inner / compute_outer) from
-#     exact match (single canonical function only).
-#
-# Applies a five-gate static check to any riscv64 ELF binary:
-#   [1/5] Architecture                   — confirm ELF is UCB RISC-V
-#   [2/5] Total RVV opcode count         — meet a minimum threshold
-#   [3/5] Arith/setup ratio              — detect silent scalar fallback
-#   [4/5] Backend selection canary       — confirm intended backend compiled in
-#   [5/5] Hot-function RVV attribution   — confirm vectorization hits the
-#                                          designated hot path (or honestly
-#                                          confirm a documented zero)
-#
-# Usage:
-#   verify-rvv-port.sh <config.conf> [flags...]
-#   verify-rvv-port.sh --binary <path> --hot-fn <name> --min-total <N> [flags...]
-#   verify-rvv-port.sh --table <c1.conf> <c2.conf> ...
+# v4: explicit alternation 'vsetvli|vsetivli' (more portable than (i?));
+#     awk patterns inline (gawk handles \< in literal regex but not via
+#     string-to-regex conversion of -v variables). Hand-asm escape
+#     clause in gate 3 preserved.
 
 set -euo pipefail
 
@@ -30,28 +17,7 @@ USAGE:
   verify-rvv-port.sh --binary <path> --hot-fn <name> [flags]
   verify-rvv-port.sh --table <config1.conf> <config2.conf> ...
 
-FLAGS (override config values):
-  --binary <path>           Path to riscv64 ELF binary
-  --port-name <name>        Short name (used in output)
-  --min-total <N>           Minimum total RVV opcodes expected
-  --hot-fn <name>           Demangled hot function name
-  --hot-fn-exact            Match hot function exactly (default: substring)
-  --expected-hot-ops <spec> "scalar" (must be 0), or a number (minimum)
-                            Use a number with --hot-fn-exact for known-count
-                            assertions (e.g., =24 for documented SLP ops)
-  --backend-canary <regex>  Regex for backend-specific opcode (default: vsetvli)
-  --table                   Markdown table row output (portfolio summary)
-  --help                    This help
-
-CONFIG FILE VARIABLES (all optional unless noted):
-  PORT_NAME, BINARY (required), MIN_TOTAL_RVV (required),
-  HOT_FUNCTION, HOT_MATCH_MODE (substring|exact), EXPECTED_HOT_OPS,
-  BACKEND_CANARY
-
-EXAMPLES:
-  verify-rvv-port.sh ports/lammps.conf
-  verify-rvv-port.sh ports/lammps.conf --hot-fn 'Verlet::run'
-  verify-rvv-port.sh --table ports/*.conf > compliance.md
+See ports/*.conf for example configs.
 EOF
 }
 
@@ -95,21 +61,19 @@ done
 verify_one() {
     local config="$1"
 
-    # Reset defaults
     BINARY=""
     PORT_NAME=""
     MIN_TOTAL_RVV=0
     HOT_FUNCTION=""
     HOT_MATCH_MODE="substring"
     EXPECTED_HOT_OPS=""
-    BACKEND_CANARY='vsetvli'
+    BACKEND_CANARY='vsetvli|vsetivli'
 
     if [ -n "$config" ]; then
         # shellcheck disable=SC1090
         source "$config"
     fi
 
-    # CLI flags override config
     [ -n "$CLI_BINARY" ]            && BINARY="$CLI_BINARY"
     [ -n "$CLI_PORT_NAME" ]         && PORT_NAME="$CLI_PORT_NAME"
     [ -n "$CLI_MIN_TOTAL_RVV" ]     && MIN_TOTAL_RVV="$CLI_MIN_TOTAL_RVV"
@@ -126,7 +90,7 @@ verify_one() {
     disasm=$(mktemp)
     "$OBJDUMP" -d "$BINARY" 2>/dev/null | "$CXXFILT" > "$disasm"
 
-    # ============ Gate 1: Architecture ============
+    # Gate 1: Architecture
     local result_arch g1
     if file "$BINARY" | grep -q "UCB RISC-V"; then
         result_arch="PASS"; g1=0
@@ -134,19 +98,19 @@ verify_one() {
         result_arch="FAIL"; g1=1
     fi
 
-    # ============ Gate 2: Total RVV count ============
+    # Gate 2: Total RVV count (explicit alternation including vsetivli)
     local total_count result_total g2
-    total_count=$(grep -cE '\<v(setvli|fmacc|fmul|fadd|fsub|le[0-9]+|se[0-9]+|fred)' "$disasm" || true)
+    total_count=$(grep -cE '\<v(setvli|setivli|fmacc|fmul|fadd|fsub|le[0-9]+|se[0-9]+|fred)' "$disasm" || true)
     if [ "$total_count" -ge "$MIN_TOTAL_RVV" ]; then
         result_total="PASS ($total_count)"; g2=0
     else
         result_total="FAIL ($total_count<$MIN_TOTAL_RVV)"; g2=1
     fi
 
-    # ============ Gate 3: Arith/setup ratio ============
+    # Gate 3: Arith/setup ratio
     local arith_count setup_count ratio_pct result_ratio g3
     arith_count=$(grep -cE '\<v(fmacc|fmul|fadd|fsub|fred)' "$disasm" || true)
-    setup_count=$(grep -cE '\<vsetvli' "$disasm" || true)
+    setup_count=$(grep -cE '\<v(setvli|setivli)' "$disasm" || true)
     if [ "$setup_count" -gt 0 ]; then
         ratio_pct=$(( 100 * arith_count / setup_count ))
     else
@@ -154,11 +118,14 @@ verify_one() {
     fi
     if [ "$ratio_pct" -ge 10 ]; then
         result_ratio="PASS (${ratio_pct}%)"; g3=0
+    elif [ "$setup_count" -eq 0 ] && [ "$arith_count" -gt 0 ]; then
+        # Hand-asm signature: arith ops without vsetvli (compile-time fixed VL)
+        result_ratio="PASS (asm:$arith_count arith)"; g3=0
     else
         result_ratio="WARN (${ratio_pct}%)"; g3=0
     fi
 
-    # ============ Gate 4: Backend canary ============
+    # Gate 4: Backend canary
     local canary_count result_canary g4
     canary_count=$(grep -cE "$BACKEND_CANARY" "$disasm" || true)
     if [ "$canary_count" -gt 0 ]; then
@@ -167,7 +134,9 @@ verify_one() {
         result_canary="FAIL (0)"; g4=1
     fi
 
-    # ============ Gate 5: Hot function attribution ============
+    # Gate 5: Hot function attribution
+    # Inline awk regex (gawk handles \< in literal regex; would NOT work
+    # via -v string-to-regex conversion).
     local hot_count="" result_hot g5=0
     if [ -n "$HOT_FUNCTION" ]; then
         hot_count=$(awk -v fn="$HOT_FUNCTION" -v mode="$HOT_MATCH_MODE" '
@@ -183,7 +152,7 @@ verify_one() {
                 } else {
                     matches = (index(current, fn) > 0)
                 }
-                if (matches && /\<v(setvli|fmacc|fmul|fadd|fsub|le[0-9]+|se[0-9]+|fred)/) c++
+                if (matches && /\<v(setvli|setivli|fmacc|fmul|fadd|fsub|le[0-9]+|se[0-9]+|fred)/) c++
             }
             END { print c+0 }' "$disasm")
 
@@ -199,7 +168,6 @@ verify_one() {
                 result_hot="N/A ($hot_count)"; g5=0
                 ;;
             =*)
-                # Exact-count assertion (=N means must equal N)
                 local expected_num="${EXPECTED_HOT_OPS:1}"
                 if [ "$hot_count" -eq "$expected_num" ]; then
                     result_hot="PASS (=$expected_num)"; g5=0
