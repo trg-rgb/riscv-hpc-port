@@ -16,3 +16,5 @@ lammps-port/lammps/
 lammps-port/build-riscv64/
 lammps-port/run-melt/melt_frames/
 lammps-port/logs/lmp.disasm
+
+*.deb
