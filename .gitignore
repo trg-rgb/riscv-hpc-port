@@ -18,3 +18,4 @@ lammps-port/run-melt/melt_frames/
 lammps-port/logs/lmp.disasm
 
 *.deb
+SHA256SUMS.txt
